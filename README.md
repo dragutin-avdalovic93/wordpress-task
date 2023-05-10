@@ -34,7 +34,7 @@ cd wordpress-docker-compose
 docker-compose up -d --build
 ```
 
-Visit your site at <http://localhost> and your database via phpMyAdmin
+Visit your site at <http://localhost:81> and your database via phpMyAdmin
 at <http://localhost:8080>.
 
 Default identification for your wordpress website admin:
