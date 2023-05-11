@@ -1,6 +1,17 @@
-/*
-Theme Name: Twenty Twenty-One Child
-Template: twentytwentyone
-*/
+.movie-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #ccc;
+    padding: 20px;
+    margin-bottom: 20px;
+}
 
-/* Your custom CSS can go below this line */
+.movie-content {
+    margin-bottom: 20px;
+}
+
+.movie-title {
+    text-align: center;
+}

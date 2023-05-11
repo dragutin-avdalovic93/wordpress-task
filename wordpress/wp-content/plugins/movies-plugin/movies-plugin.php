@@ -46,7 +46,6 @@ function create_movies_post_type() {
 
 add_action( 'init', 'create_movies_post_type' );
 
-//Add custom meta field for movie title
 function add_movie_title_meta_box() {
 	add_meta_box(
 		'movie_title',
@@ -59,20 +58,20 @@ function add_movie_title_meta_box() {
 }
 
 function movie_title_callback( $post ) {
-	//Get current value of movie title
 	$movie_title = get_post_meta( $post->ID, 'movie_title', true );
-
-	//Display input field with movie title
-	echo '<input type="text" id="movie_title" name="movie_title" value="' . esc_attr( $movie_title ) . '" />';
+	?>
+    <label for="movie_title">Movie Title:</label>
+    <input type="text" id="movie_title" name="movie_title" value="<?php echo esc_attr( $movie_title ); ?>"/>
+	<?php
 }
 
 function save_movie_title_meta( $post_id ) {
-	//Check if movie title is set
 	if ( isset( $_POST['movie_title'] ) ) {
 		update_post_meta( $post_id, 'movie_title', sanitize_text_field( $_POST['movie_title'] ) );
 	}
 }
 
+add_action( 'add_meta_boxes', 'add_movie_title_meta_box' );
 add_action( 'save_post', 'save_movie_title_meta' );
 
 function movies_rest_route() {
