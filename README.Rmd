@@ -12,13 +12,6 @@ knitr::opts_chunk$set(
 ```
    
 # Deploy Wordpress on Localhost and in Production using Docker Compose
-   
-   
-Related blog post:
-   
-- [WordPress Local Development Using Docker Compose](https://www.datanovia.com/en/lessons/wordpress-local-development-using-docker-compose/): Deploy Wordpress on localhost using docker
-- [Docker WordPress Production Deployment](https://www.datanovia.com/en/lessons/docker-wordpress-production-deployment/): Step-by-step guide to deploy WordPress online using docker-compose
-- [Using Docker WordPress Cli to Manage WordPress Websites](https://www.datanovia.com/en/lessons/using-docker-wordpress-cli-to-manage-wordpress-websites/): Commande line interface for managing a WordPress website
 
 
 The installation tool kit, provided here, include:
@@ -34,9 +27,9 @@ You can automatically deploy a local docker wordpress site in 5 minutes using th
    
    
 ```bash
-# Download a wordpress docker-compose example
-git clone https://github.com/kassambara/wordpress-docker-compose
-cd wordpress-docker-compose
+# Download a folder structure from github repo
+git clone https://github.com/dragutin-avdalovic93/wordpress-task.git
+cd wordpress-task
 # Build and start installation
 docker-compose up -d --build
 ```
