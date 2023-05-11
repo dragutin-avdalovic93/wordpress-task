@@ -32,7 +32,7 @@ jQuery(document).ready(function ($) {
                 localStorage.setItem('access_token_expiration', tokenData.expiresAt.toString());
 
                 // Redirect to dashboard after successful login
-                window.location.href = '/sample-page';
+                window.location.href = '/movies';
 
 
                 // Set the expiration time for the cookie (e.g., 1 day from now)
