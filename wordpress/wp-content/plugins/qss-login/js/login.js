@@ -21,11 +21,27 @@ jQuery(document).ready(function ($) {
             contentType: 'application/json',
             success: function (response) {
                 console.log(response);
-                // Store the access token using local storage
-                localStorage.setItem('access_token', response.token_key);
+                // Store the access token as an object with expiration time
+                var tokenData = {
+                    token: response.token_key,
+                    expiresAt: new Date().getTime() + (24 * 60 * 60 * 1000) // Set expiration time to 24 hours from now
+                };
+
+                // Store the token data and expiration timestamp in local storage
+                localStorage.setItem('access_token', tokenData.token);
+                localStorage.setItem('access_token_expiration', tokenData.expiresAt.toString());
 
                 // Redirect to dashboard after successful login
-                window.location.href = '/';
+                window.location.href = '/sample-page';
+
+
+                // Set the expiration time for the cookie (e.g., 1 day from now)
+                //var expirationTime = new Date();
+                //expirationTime.setDate(expirationTime.getDate() + 1);
+                // Set the token in a cookie
+                //document.cookie = "access_token=" + token + "; expires=" + expirationTime.toUTCString() + "; path=/;";
+                // Redirect to dashboard after successful login
+                window.location.replace("/sample-page");
             },
             error: function (xhr, status, error) {
                 // Handle login error
