@@ -43,7 +43,10 @@ registerBlockType('favorite-movie-quote/block', {
 	/**
 	 * @see ./save.js
 	 */
-	save() {
-		return null;
+	save({ attributes }) {
+		const { quote } = attributes;
+		return (
+			<p>{quote}</p>
+		);
 	},
 });
