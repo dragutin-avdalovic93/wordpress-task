@@ -7,12 +7,23 @@
  */
 
 // Register custom page template
-add_filter( 'theme_page_templates', 'qss_login_add_page_template' );
+add_filter( 'theme_page_templates', 'qss_login_add_page_template', 10, 4 );
 
-function qss_login_add_page_template( $templates ) {
-	$templates['qss-login-template.php'] = 'QSS Login Template';
+function qss_login_add_page_template( $page_templates, $theme, $post, $post_type ) {
+	$page_templates['qss-login-template.php'] = 'QSS Login Template';
 
-	return $templates;
+	return $page_templates;
+}
+
+// Load custom page template
+add_filter( 'template_include', 'qss_login_load_template' );
+
+function qss_login_load_template( $template ) {
+	if ( is_page_template( 'qss-login-template.php' ) ) {
+		$template = plugin_dir_path( __FILE__ ) . 'templates/qss-login-template.php';
+	}
+
+	return $template;
 }
 
 // Plugin initialization

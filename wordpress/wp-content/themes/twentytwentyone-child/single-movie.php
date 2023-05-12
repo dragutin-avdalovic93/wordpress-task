@@ -21,13 +21,13 @@ get_header();
 			foreach ( $blocks as $block ) {
 				// Output the block content
 				echo render_block( $block );
-			}
-			?>
-        </div>
-        <div class="movie-featured-image">
-			<?php
-			if ( has_post_thumbnail() ) {
-				the_post_thumbnail();
+
+				// Check if it's the first block and display the featured image
+				if ( $block === reset( $blocks ) && has_post_thumbnail() ) {
+					echo '<div class="movie-featured-image">';
+					the_post_thumbnail();
+					echo '</div>';
+				}
 			}
 			?>
         </div>
