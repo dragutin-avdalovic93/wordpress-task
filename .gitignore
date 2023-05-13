@@ -5,7 +5,6 @@
 .RData
 .DS_Store
 !wordpress/.keep
-mysql/*
 !mysql/.keep
 logs/nginx/*
 !logs/nginx/.keep
